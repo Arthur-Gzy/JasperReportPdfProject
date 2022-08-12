@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.print.attribute.standard.Media;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -63,10 +64,4 @@ public class CustomerController {
 	public List<Customer> getAllCustomers(){
 		return customerService.getAllCustomers();
 	}
-	
-	@GetMapping(value="/deneme/{id}")
-	public Long deneme(@PathVariable("id") Long id) {
-		return ClientTemplate.getCustomerLoanByIdAPI(id);
-	}
-	
 }

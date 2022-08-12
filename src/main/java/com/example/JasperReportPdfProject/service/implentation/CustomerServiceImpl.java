@@ -48,5 +48,4 @@ public class CustomerServiceImpl implements CustomerService{
 	public void deleteById(Long id) {
 		customerRepos.deleteById(id);
 	}
-
 }
