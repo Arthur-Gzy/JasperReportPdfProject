@@ -25,6 +25,8 @@ import com.example.JasperReportPdfProject.domain.dto.CustomerDto;
 import com.example.JasperReportPdfProject.domain.entity.Customer;
 import com.example.JasperReportPdfProject.repository.CustomerRepository;
 import com.example.JasperReportPdfProject.service.CustomerService;
+import com.example.JasperReportPdfProject.service.ProducerService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -40,9 +42,14 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 	
+	@Autowired
+	private ProducerService producerService;
+	
 	@PostMapping(value="/add")
 	public String addNewCustomer(@RequestBody CustomerDto customerDto) {
 		customerService.customerAdd(customerDto);
+		Customer customer = new Customer(customerDto.getFirstName(), customerDto.getSecondName());
+		producerService.sendCustomer(customer);
 		return "Saved";
 	}
 	
@@ -51,7 +58,10 @@ public class CustomerController {
 			consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE},
 			produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_ATOM_XML_VALUE})
 	public ResponseEntity<Customer> getCustomerById(@PathVariable("id") Long id) {
-		return new ResponseEntity<>(customerService.getCustomerById(id), HttpStatus.OK);
+		Customer customer = new Customer();
+		customer = customerService.getCustomerById(id);
+		producerService.sendCustomer(customer);
+		return new ResponseEntity<>(customer, HttpStatus.OK);
 	}
 	
 	@DeleteMapping(value="/delete/{id}")

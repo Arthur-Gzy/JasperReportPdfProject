@@ -18,10 +18,10 @@ public class JasperReportPdfProjectApplication {
 		SpringApplication.run(JasperReportPdfProjectApplication.class, args);
 	}
 	
-	@Bean
+	/*@Bean
 	CommandLineRunner commandLineRunner() {
 		return args -> {
-				service.sendMessage("Hello Kafka");
+				service.sendMessage("Deneme");
 		};
-	}
+	}*/
 }
