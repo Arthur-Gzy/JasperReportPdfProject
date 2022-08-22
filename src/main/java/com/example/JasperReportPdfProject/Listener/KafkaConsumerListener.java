@@ -10,6 +10,6 @@ public class KafkaConsumerListener {
 	
 	 @KafkaListener(topics="Customer", groupId="Group_Json", containerFactory="kafkaCustomerListenerContainerFactory")
 	 public void consumeJson(Customer customer) {
-		 System.out.println("Consumed Json Mesage -> " + customer.toString());
+		 System.out.println("Consumed Json Message -> " + customer.toString());
 	 }
 }
