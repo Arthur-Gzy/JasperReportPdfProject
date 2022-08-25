@@ -1,6 +1,5 @@
 package com.example.JasperReportPdfProject.RestTemplate;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
@@ -8,9 +7,7 @@ import com.example.JasperReportPdfProject.domain.dto.CustomerLoanDto;
 
 public class ClientTemplate {
 	
-	private final HttpHeaders headers = new HttpHeaders();
-	
-	public static String GET_LOAN_BY_ID_API = "http://localhost:8080/getloanbyid";
+	public static String GET_LOAN_BY_ID_API = "http://localhost:8081/getloanbyid";
 	
 	static RestTemplate restTemplate = new RestTemplate();
 

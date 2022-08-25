@@ -1,9 +1,5 @@
 package com.example.JasperReportPdfProject.domain.dto;
 
-import javax.persistence.Entity;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 public class CustomerDto {
 	
 	private Long id;

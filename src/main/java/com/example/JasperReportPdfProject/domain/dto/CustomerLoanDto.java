@@ -1,7 +1,5 @@
 package com.example.JasperReportPdfProject.domain.dto;
 
-import javax.persistence.Column;
-
 public class CustomerLoanDto {
 	
 	private Long customerId;

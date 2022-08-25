@@ -1,12 +1,9 @@
 package com.example.JasperReportPdfProject.FileHandler;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 public class FileHandler {
 	
@@ -52,10 +49,12 @@ public class FileHandler {
 			if(fileEx.equalsIgnoreCase(ex)) {
 				if(fileEx.equalsIgnoreCase("jrxml")) {
 					//targetDir = "/jrxml";
+					//Yukarıdaki yorum satırı docker konteynırı için kullanılmalı, yerel pc için hemen alltaki
 					targetDir = "\\src\\main\\resources\\reports";
 				}
 				else if(fileEx.equalsIgnoreCase("pdf")) {
 					//targetDir = "/pdfreports";
+					//Yukarıdaki yorum satırı docker konteynırı için kullanılmalı, yerel pc için hemen alltaki
 					targetDir = "\\src\\main\\resources\\compiledPdfReports";
 				}
 			}
